@@ -1,16 +1,16 @@
-package br.com.githubsummaryapp.ui.home;
+package br.com.githubsummaryapp.ui.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class HistoryViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public HistoryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("GitHub Summary");
+        mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {

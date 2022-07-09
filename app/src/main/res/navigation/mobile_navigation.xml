@@ -22,4 +22,10 @@
         android:name="br.com.githubsummaryapp.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="br.com.githubsummaryapp.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

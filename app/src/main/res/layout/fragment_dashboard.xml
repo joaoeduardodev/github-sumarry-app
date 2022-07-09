@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView_user"
         android:layout_width="wrap_content"
@@ -27,7 +15,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:id="@+id/tableLayout_user"
@@ -100,6 +88,99 @@
                 android:textSize="20dp"
                 android:padding="3dp" />
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="@string/user_blog"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:padding="3dp" />
+            <TextView
+                android:id="@+id/textView_user_blog"
+                android:gravity="left"
+                android:textSize="12dp"
+                android:padding="3dp"
+                android:autoLink="all" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="@string/user_repositories"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:padding="3dp" />
+            <TextView
+                android:id="@+id/textView_user_repositories"
+                android:gravity="left"
+                android:textSize="20dp"
+                android:padding="3dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="@string/user_gists"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:padding="3dp" />
+            <TextView
+                android:id="@+id/textView_user_gists"
+                android:gravity="left"
+                android:textSize="20dp"
+                android:padding="3dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="@string/user_followers"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:padding="3dp" />
+            <TextView
+                android:id="@+id/textView_user_followers"
+                android:gravity="left"
+                android:textSize="20dp"
+                android:padding="3dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="@string/user_following"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:padding="3dp" />
+            <TextView
+                android:id="@+id/textView_user_following"
+                android:gravity="left"
+                android:textSize="20dp"
+                android:padding="3dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="@string/user_more_info"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:padding="3dp"/>
+            <TextView
+                android:id="@+id/textView_user_more_info"
+                android:gravity="left"
+                android:textSize="12dp"
+                android:padding="3dp"
+                android:autoLink="all" />
+        </TableRow>
+
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

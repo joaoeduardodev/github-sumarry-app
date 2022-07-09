@@ -9,4 +9,10 @@
     <string name="user_email">"Email : "</string>
     <string name="user_company">"Company : "</string>
     <string name="user_location">"Location : "</string>
+    <string name="user_blog">"Blog : "</string>
+    <string name="user_repositories">"Repositories : "</string>
+    <string name="user_gists">"Gists : "</string>
+    <string name="user_followers">"Followers : "</string>
+    <string name="user_following">"Following : "</string>
+    <string name="user_more_info">"More : "</string>
 </resources>

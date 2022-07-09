@@ -1,17 +1,23 @@
 package br.com.githubsummaryapp.ui.dashboard;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
@@ -28,16 +34,14 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
+
+
 
     @Override
     public void onDestroyView() {
@@ -59,11 +63,23 @@ public class DashboardFragment extends Fragment {
             TextView textView_user_location = binding.textViewUserLocation;
             TextView textView_user_email = binding.textViewUserEmail;
             TextView textView_user_company = binding.textViewUserCompany;
+            TextView textView_user_blog = binding.textViewUserBlog;
+            TextView textView_user_repositories = binding.textViewUserRepositories;
+            TextView textView_user_gists = binding.textViewUserGists;
+            TextView textView_user_followers = binding.textViewUserFollowers;
+            TextView textView_user_following = binding.textViewUserFollowing;
+            TextView textView_user_more_info = binding.textViewUserMoreInfo;
             Picasso.get().load(user.getAvatar_url()).into(imageViewUser);
             textView_user_name.setText(user.getName());
             textView_user_location.setText(user.getLocation());
             textView_user_email.setText(user.getEmail());
             textView_user_company.setText(user.getCompany());
+            textView_user_repositories.setText(String.valueOf(user.getPublic_repos()));
+            textView_user_blog.setText(user.getBlog());
+            textView_user_gists.setText(String.valueOf(user.getPublic_gists()));
+            textView_user_followers.setText(String.valueOf(user.getFollowers()));
+            textView_user_following.setText(String.valueOf(user.getFollowing()));
+            textView_user_more_info.setText(user.getHtml_url());
         }
 
 

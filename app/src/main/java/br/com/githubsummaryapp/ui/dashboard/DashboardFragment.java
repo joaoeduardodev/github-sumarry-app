@@ -47,16 +47,23 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        System.out.println(getArguments());
         Object taskArguments = null;
-        System.out.println(getArguments());
         if (getArguments() != null){
             taskArguments = getArguments().getSerializable("user");
         }
         if (taskArguments != null){
+            binding.tableLayoutUser.setVisibility(View.VISIBLE);
             user = (User) taskArguments;
             ImageView imageViewUser = binding.imageViewUser;
+            TextView textView_user_name = binding.textViewUserName;
+            TextView textView_user_location = binding.textViewUserLocation;
+            TextView textView_user_email = binding.textViewUserEmail;
+            TextView textView_user_company = binding.textViewUserCompany;
             Picasso.get().load(user.getAvatar_url()).into(imageViewUser);
+            textView_user_name.setText(user.getName());
+            textView_user_location.setText(user.getLocation());
+            textView_user_email.setText(user.getEmail());
+            textView_user_company.setText(user.getCompany());
         }
 
 

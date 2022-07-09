@@ -5,4 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_history">History</string>
     <string name="search_label">Enter with GitHub User</string>
+    <string name="user_name">"Name : "</string>
+    <string name="user_email">"Email : "</string>
+    <string name="user_company">"Company : "</string>
+    <string name="user_location">"Location : "</string>
 </resources>

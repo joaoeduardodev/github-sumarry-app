@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/FullCycle/golang" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/alonga-ai" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bootstrap-typescript" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/git-github-na-pratica/minicurso-git-github" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github-sumarry-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/machine-learning-heart-disease-uci" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nest-crud-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/node-api-estoque" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presentation/reveal.js" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/py-script-lab" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/python_analise_transacoes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/roit/front" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/siva" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring-api-atendimento" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring-boot-forum-alura" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/todo-list-android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/treinamento-vue3-code" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/typescript-alura" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/typescript-oop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vue/alura-tracker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vue/api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vue/front" vcs="Git" />
+  </component>
+</project>

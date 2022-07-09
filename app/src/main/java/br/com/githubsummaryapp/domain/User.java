@@ -1,6 +1,8 @@
 package br.com.githubsummaryapp.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String login ;
     private Integer id ;
     private String node_id ;

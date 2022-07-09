@@ -11,9 +11,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.Serializable;
+
+import br.com.githubsummaryapp.R;
 import br.com.githubsummaryapp.config.RetrofitConfig;
 import br.com.githubsummaryapp.databinding.FragmentHomeBinding;
 import br.com.githubsummaryapp.domain.User;
@@ -53,7 +58,10 @@ public class HomeFragment extends Fragment {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()) {
                             User user = response.body();
-                            System.out.println(user.toString());
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("user", user);
+                            NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
+                            navController.navigate(R.id.action_navigation_home_to_navigation_dashboard, bundle);
                         } else if (response.code() == 404 ) {
                             Snackbar snackbarOnFailureRequest = Snackbar.make(binding.getRoot(), "Uusário não encontrado", Snackbar.LENGTH_LONG);
                             snackbarOnFailureRequest.show();

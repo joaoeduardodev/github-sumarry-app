@@ -7,5 +7,5 @@ import retrofit2.http.Path;
 
 public interface GitHubService {
     @GET("/users/{id}")
-    Call<User> getUserById(@Path("id") String id);
+    Call<User> getUser(@Path("id") String id);
 }

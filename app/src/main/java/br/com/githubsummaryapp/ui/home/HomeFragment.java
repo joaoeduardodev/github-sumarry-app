@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
                     System.out.println(dao.listAll());
                 }
 
-                Call<User> call = new RetrofitConfig().getGitHubService().getUserById(user);
+                Call<User> call = new RetrofitConfig().getGitHubService().getUser(user);
 
                 call.enqueue(new Callback<User>() {
                     @Override
@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment {
                             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
                             navController.navigate(R.id.action_navigation_home_to_navigation_dashboard, bundle);
                         } else if (response.code() == 404 ) {
-                            Snackbar snackbarOnFailureRequest = Snackbar.make(binding.getRoot(), R.string.user_not_found, Snackbar.LENGTH_LONG);
+                            Snackbar snackbarOnFailureRequest = Snackbar.make(getView(), R.string.user_not_found, Snackbar.LENGTH_LONG);
                             snackbarOnFailureRequest.show();
                         } else {
                             Log.d("Error in request", "StatusCode: " +response.code()+ "Error: " + response.body() );

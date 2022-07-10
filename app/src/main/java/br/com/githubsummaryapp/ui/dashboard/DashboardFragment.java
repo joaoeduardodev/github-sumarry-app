@@ -5,13 +5,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,13 +22,23 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 
+import br.com.githubsummaryapp.R;
+import br.com.githubsummaryapp.config.RetrofitConfig;
 import br.com.githubsummaryapp.databinding.FragmentDashboardBinding;
+import br.com.githubsummaryapp.db.FavoriteUsersDAO;
+import br.com.githubsummaryapp.db.SearchHistoryDAO;
+import br.com.githubsummaryapp.domain.FavoriteUsers;
+import br.com.githubsummaryapp.domain.SearchHistory;
 import br.com.githubsummaryapp.domain.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DashboardFragment extends Fragment {
 
@@ -39,6 +52,44 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
 
         return root;
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.floatingActionButtonAddFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Object taskArguments = null;
+                if (getArguments() != null){
+                    taskArguments = getArguments().getSerializable("user");
+                }
+                if (taskArguments != null) {
+                    binding.tableLayoutUser.setVisibility(View.VISIBLE);
+                    user = (User) taskArguments;
+                    FavoriteUsers favoriteUsers = new FavoriteUsers(0,
+                            user.getLogin(),
+                            user.getAvatar_url(),
+                            user.getUrl(),
+                            user.getHtml_url(),
+                            user.getName(),
+                            user.getCompany(),
+                            user.getBlog(),
+                            user.getLocation(),
+                            user.getEmail(),
+                            user.getBio(),
+                            user.getPublic_repos(),
+                            user.getPublic_gists(),
+                            user.getFollowers(),
+                            user.getFollowing());
+
+                    FavoriteUsersDAO dao = new FavoriteUsersDAO(getContext());
+                    System.out.println(favoriteUsers.toString());
+                    dao.save(favoriteUsers);
+                }
+            }
+        });
+
     }
 
 

@@ -17,4 +17,5 @@
     <string name="user_more_info">"More : "</string>
     <string name="user_input_empty">User input  is empty</string>
     <string name="user_not_found">User not found</string>
+    <string name="title_favorite">Favorite</string>
 </resources>

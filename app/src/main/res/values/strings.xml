@@ -22,4 +22,5 @@
     <string name="error_in_add_user_to_favorite">Error in add user to favorite</string>
     <string name="user_removed_from_favorite">"User removed from favorite "</string>
     <string name="error_removing_user_from_favorite">"Error removing user from favorite "</string>
+    <string name="no_user_added_to_favorites">"No user added to favorites "</string>
 </resources>

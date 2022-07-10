@@ -48,8 +48,14 @@ public class FavoriteFragment extends Fragment {
         FavoriteUsersDAO dao = new FavoriteUsersDAO(getContext());
         List<FavoriteUsers> favoriteUsersList = dao.listAll();
 
-        ArrayAdapter  adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, favoriteUsersList);
+        if(!favoriteUsersList.isEmpty()){
+            binding.ListViewFavorite.setVisibility(View.VISIBLE);
+            ArrayAdapter  adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, favoriteUsersList);
+            binding.ListViewFavorite.setAdapter(adapter);
+        } else {
+            binding.textViewFavorite.setVisibility(View.VISIBLE);
+        }
 
-        binding.ListViewFavorite.setAdapter(adapter);
+
     }
 }

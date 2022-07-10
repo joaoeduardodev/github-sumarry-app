@@ -55,41 +55,78 @@ public class DashboardFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
+        Object taskArguments = null;
+        if (getArguments() != null){
+            taskArguments = getArguments().getSerializable("user");
+        }
+        if (taskArguments != null) {
+            binding.tableLayoutUser.setVisibility(View.VISIBLE);
+            user = (User) taskArguments;
+            FavoriteUsersDAO dao = new FavoriteUsersDAO(getContext());
+            FavoriteUsers userFavorite = dao.findByUser(user.getLogin());
+            Boolean userIsFavorite = userFavorite != null;
 
-        binding.floatingActionButtonAddFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Object taskArguments = null;
-                if (getArguments() != null){
-                    taskArguments = getArguments().getSerializable("user");
-                }
-                if (taskArguments != null) {
-                    binding.tableLayoutUser.setVisibility(View.VISIBLE);
-                    user = (User) taskArguments;
-                    FavoriteUsers favoriteUsers = new FavoriteUsers(0,
-                            user.getLogin(),
-                            user.getAvatar_url(),
-                            user.getUrl(),
-                            user.getHtml_url(),
-                            user.getName(),
-                            user.getCompany(),
-                            user.getBlog(),
-                            user.getLocation(),
-                            user.getEmail(),
-                            user.getBio(),
-                            user.getPublic_repos(),
-                            user.getPublic_gists(),
-                            user.getFollowers(),
-                            user.getFollowing());
-
-                    FavoriteUsersDAO dao = new FavoriteUsersDAO(getContext());
-                    System.out.println(favoriteUsers.toString());
-                    dao.save(favoriteUsers);
-                }
+            if (userIsFavorite) {
+                binding.floatingActionButtonAddFavoriteSelected.setVisibility(View.VISIBLE);
+            } else {
+                binding.floatingActionButtonAddFavorite.setVisibility(View.VISIBLE);
             }
-        });
 
+            binding.floatingActionButtonAddFavorite.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+
+
+                     FavoriteUsersDAO dao = new FavoriteUsersDAO(getContext());
+                     FavoriteUsers favoriteUsers = new FavoriteUsers(0,
+                             user.getLogin(),
+                             user.getAvatar_url(),
+                             user.getUrl(),
+                             user.getHtml_url(),
+                             user.getName(),
+                             user.getCompany(),
+                             user.getBlog(),
+                             user.getLocation(),
+                             user.getEmail(),
+                             user.getBio(),
+                             user.getPublic_repos(),
+                             user.getPublic_gists(),
+                             user.getFollowers(),
+                             user.getFollowing());
+                     System.out.println(favoriteUsers.toString());
+                     try {
+                         dao.save(favoriteUsers);
+                         Snackbar snackbarOnSuccessAddToFavorite = Snackbar.make(getView(), R.string.added_user_to_favorite, Snackbar.LENGTH_LONG);
+                         snackbarOnSuccessAddToFavorite.show();
+                         binding.floatingActionButtonAddFavoriteSelected.setVisibility(View.VISIBLE);
+                         binding.floatingActionButtonAddFavorite.setVisibility(View.INVISIBLE);
+                     } catch (Exception exception) {
+                         Log.d("ErrorInAddToFavorite", " Error: " + exception);
+                         Snackbar snackbarOnFailureAddToFavorite = Snackbar.make(getView(), R.string.error_in_add_user_to_favorite, Snackbar.LENGTH_LONG);
+                         snackbarOnFailureAddToFavorite.show();
+                     }
+                 }
+             });
+
+            binding.floatingActionButtonAddFavoriteSelected.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        dao.delete(userFavorite);
+                        Snackbar snackbarOnSuccessAddToFavorite = Snackbar.make(getView(), R.string.user_removed_from_favorite, Snackbar.LENGTH_LONG);
+                        snackbarOnSuccessAddToFavorite.show();
+                        binding.floatingActionButtonAddFavoriteSelected.setVisibility(View.INVISIBLE);
+                        binding.floatingActionButtonAddFavorite.setVisibility(View.VISIBLE);
+                    } catch (Exception exception) {
+                        Log.d("ErrorInRemoveToFavorite", " Error: " + exception);
+                        Snackbar snackbarOnFailureAddToFavorite = Snackbar.make(getView(), R.string.error_removing_user_from_favorite, Snackbar.LENGTH_LONG);
+                        snackbarOnFailureAddToFavorite.show();
+                    }
+                }
+            });
+        }
     }
 
 
@@ -132,7 +169,5 @@ public class DashboardFragment extends Fragment {
             textView_user_following.setText(String.valueOf(user.getFollowing()));
             textView_user_more_info.setText(user.getHtml_url());
         }
-
-
     }
 }

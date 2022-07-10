@@ -213,10 +213,25 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:clickable="true"
+        android:visibility="invisible"
         android:src="@drawable/ic_baseline_favorite_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:backgroundTint="@color/material_dynamic_neutral70"
         app:tint="@color/material_dynamic_neutral100"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonAddFavoriteSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_favorite_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/material_dynamic_neutral70"
+        app:tint="@color/design_default_color_primary"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

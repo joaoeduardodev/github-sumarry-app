@@ -18,4 +18,8 @@
     <string name="user_input_empty">User input  is empty</string>
     <string name="user_not_found">User not found</string>
     <string name="title_favorite">Favorite</string>
+    <string name="added_user_to_favorite">Added user to favorite</string>
+    <string name="error_in_add_user_to_favorite">Error in add user to favorite</string>
+    <string name="user_removed_from_favorite">"User removed from favorite "</string>
+    <string name="error_removing_user_from_favorite">"Error removing user from favorite "</string>
 </resources>

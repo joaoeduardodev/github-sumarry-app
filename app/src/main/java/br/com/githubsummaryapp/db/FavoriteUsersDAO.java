@@ -102,13 +102,13 @@ public class FavoriteUsersDAO extends DAO<FavoriteUsers> {
         return favoriteUsers;
     }
 
-    public FavoriteUsers findById(Integer favoritUserId) {
+    public FavoriteUsers findByUser(String favoritUser) {
         SQLiteDatabase database = openToRead();
         FavoriteUsers favoriteUser = null;
 
-        String sql = " SELECT * FROM favorite_user WHERE id = ?; ";
+        String sql = " SELECT * FROM favorite_user WHERE login = ?; ";
 
-        String[] params = {favoritUserId.toString()};
+        String[] params = {favoritUser};
 
         Cursor cursor = database.rawQuery(sql, params);
 

@@ -15,4 +15,6 @@
     <string name="user_followers">"Followers : "</string>
     <string name="user_following">"Following : "</string>
     <string name="user_more_info">"More : "</string>
+    <string name="user_input_empty">User input  is empty</string>
+    <string name="user_not_found">User not found</string>
 </resources>

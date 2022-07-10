@@ -4,13 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
+import br.com.githubsummaryapp.R;
 import br.com.githubsummaryapp.databinding.FragmentNotificationsBinding;
+import br.com.githubsummaryapp.db.SearchHistoryDAO;
+import br.com.githubsummaryapp.domain.SearchHistory;
 
 public class NotificationsFragment extends Fragment {
 
@@ -18,14 +26,9 @@ public class NotificationsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
@@ -34,4 +37,21 @@ public class NotificationsFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        listSearchHistory();
+    }
+
+    private void listSearchHistory() {
+        SearchHistoryDAO dao = new SearchHistoryDAO(getContext());
+        List<SearchHistory> searchHistoryList = dao.listAll();
+
+        ArrayAdapter  adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, searchHistoryList);
+
+        binding.ListViewSearchHistory.setAdapter(adapter);
+    }
+
 }

@@ -1,5 +1,7 @@
 package br.com.githubsummaryapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -35,6 +37,44 @@ public class User implements Serializable {
     private Integer following ;
     private String created_at ;
     private String updated_at ;
+
+    public User(){
+    }
+
+    public User(@JsonProperty("login") String login, @JsonProperty("id") Integer id, @JsonProperty("node_id") String node_id, @JsonProperty("avatar_url") String avatar_url, @JsonProperty("gravatar_id") String gravatar_id, @JsonProperty("url") String url, @JsonProperty("html_url") String html_url, @JsonProperty("followers_url") String followers_url, @JsonProperty("following_url") String following_url, @JsonProperty("gists_url") String gists_url, @JsonProperty("starred_url") String starred_url, @JsonProperty("subscriptions_url") String subscriptions_url, @JsonProperty("organizations_url") String organizations_url, @JsonProperty("repos_url") String repos_url, @JsonProperty("events_url") String events_url, @JsonProperty("received_events_url") String received_events_url, @JsonProperty("type") String type, @JsonProperty("site_admin") Boolean site_admin, @JsonProperty("name") String name, @JsonProperty("company") String company, @JsonProperty("blog") String blog, @JsonProperty("location") String location, @JsonProperty("email") String email, @JsonProperty("hireable") String hireable, @JsonProperty("bio") String bio, @JsonProperty("twitter_username") String twitter_username, @JsonProperty("public_repos") Integer public_repos, @JsonProperty("public_gists") Integer public_gists, @JsonProperty("followers") Integer followers, @JsonProperty("following") Integer following, @JsonProperty("created_at") String created_at, @JsonProperty("updated_at") String updated_at) {
+        this.login = login;
+        this.id = id;
+        this.node_id = node_id;
+        this.avatar_url = avatar_url;
+        this.gravatar_id = gravatar_id;
+        this.url = url;
+        this.html_url = html_url;
+        this.followers_url = followers_url;
+        this.following_url = following_url;
+        this.gists_url = gists_url;
+        this.starred_url = starred_url;
+        this.subscriptions_url = subscriptions_url;
+        this.organizations_url = organizations_url;
+        this.repos_url = repos_url;
+        this.events_url = events_url;
+        this.received_events_url = received_events_url;
+        this.type = type;
+        this.site_admin = site_admin;
+        this.name = name;
+        this.company = company;
+        this.blog = blog;
+        this.location = location;
+        this.email = email;
+        this.hireable = hireable;
+        this.bio = bio;
+        this.twitter_username = twitter_username;
+        this.public_repos = public_repos;
+        this.public_gists = public_gists;
+        this.followers = followers;
+        this.following = following;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
 
     public String getLogin() {
         return login;

@@ -1,6 +1,8 @@
 package br.com.githubsummaryapp.ui.dashboard;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -55,8 +57,8 @@ public class DashboardFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
+
         Object taskArguments = null;
         if (getArguments() != null){
             taskArguments = getArguments().getSerializable("user");
@@ -139,6 +141,10 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        SharedPreferences preferences = getContext().getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        Boolean connected_internet = preferences.getBoolean("connected_internet", false);
+
         Object taskArguments = null;
         if (getArguments() != null){
             taskArguments = getArguments().getSerializable("user");
@@ -157,7 +163,9 @@ public class DashboardFragment extends Fragment {
             TextView textView_user_followers = binding.textViewUserFollowers;
             TextView textView_user_following = binding.textViewUserFollowing;
             TextView textView_user_more_info = binding.textViewUserMoreInfo;
-            Picasso.get().load(user.getAvatar_url()).into(imageViewUser);
+            if (connected_internet){
+                Picasso.get().load(user.getAvatar_url()).into(imageViewUser);
+            }
             textView_user_name.setText(user.getName());
             textView_user_location.setText(user.getLocation());
             textView_user_email.setText(user.getEmail());

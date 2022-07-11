@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
 
         editor.putBoolean("connected_internet", InternetVerification.isAvailable());
-        editor.commit();
+        editor.apply();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

@@ -1,4 +1,4 @@
-package br.com.githubsummaryapp.ui.home;
+package br.com.githubsummaryapp.ui.search;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import br.com.githubsummaryapp.R;
 import br.com.githubsummaryapp.config.RetrofitConfig;
-import br.com.githubsummaryapp.databinding.FragmentHomeBinding;
+import br.com.githubsummaryapp.databinding.FragmentSearchBinding;
 import br.com.githubsummaryapp.db.SearchHistoryDAO;
 import br.com.githubsummaryapp.domain.SearchHistory;
 import br.com.githubsummaryapp.domain.User;
@@ -27,14 +27,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeFragment extends Fragment {
+public class SearchFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentSearchBinding binding;
     private SearchHistory searchHistory;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         SharedPreferences preferences = getContext().getSharedPreferences("preferences", Context.MODE_PRIVATE);
         Boolean connected_internet = preferences.getBoolean("connected_internet", false);
@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("user", user);
                             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                            navController.navigate(R.id.action_navigation_home_to_navigation_user, bundle);
+                            navController.navigate(R.id.action_navigation_search_to_navigation_user, bundle);
                         } else if (response.code() == 404 ) {
                             Snackbar snackbarOnFailureRequest = Snackbar.make(getView(), R.string.user_not_found, Snackbar.LENGTH_LONG);
                             snackbarOnFailureRequest.show();

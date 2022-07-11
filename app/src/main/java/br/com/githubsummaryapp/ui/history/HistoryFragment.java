@@ -1,5 +1,7 @@
 package br.com.githubsummaryapp.ui.history;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -83,12 +85,23 @@ public class HistoryFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        listSearchHistory();
+        SharedPreferences preferences = getContext().getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        Boolean connected_internet = preferences.getBoolean("connected_internet", false);
+
+        if (connected_internet == false){
+            binding.ListViewSearchHistory.setVisibility(View.INVISIBLE);
+            binding.textViewHistory.setVisibility(View.VISIBLE);
+        }else{
+            listSearchHistory();
+        }
+
     }
 
     private void listSearchHistory() {
+
         SearchHistoryDAO dao = new SearchHistoryDAO(getContext());
         List<SearchHistory> searchHistoryList = dao.listAll();
+
 
         if(!searchHistoryList.isEmpty()){
             binding.ListViewSearchHistory.setVisibility(View.VISIBLE);
@@ -97,7 +110,7 @@ public class HistoryFragment extends Fragment {
         } else {
             binding.textViewHistory.setVisibility(View.VISIBLE);
         }
-        
+
     }
 
 }

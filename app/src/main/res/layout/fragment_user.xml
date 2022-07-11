@@ -231,10 +231,10 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:clickable="true"
         android:visibility="invisible"
-        android:src="@drawable/ic_baseline_favorite_24"
+        android:src="@drawable/ic_favorite_black_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/material_dynamic_neutral70"
-        app:tint="@color/material_dynamic_neutral100"
+        app:backgroundTint="@color/black"
+        app:tint="@color/white"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -245,10 +245,10 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:clickable="true"
         android:visibility="invisible"
-        android:src="@drawable/ic_baseline_favorite_24"
+        android:src="@drawable/ic_favorite_black_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/material_dynamic_neutral70"
-        app:tint="@color/design_default_color_primary"
+        app:backgroundTint="@color/black"
+        app:tint="@color/purple_500"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

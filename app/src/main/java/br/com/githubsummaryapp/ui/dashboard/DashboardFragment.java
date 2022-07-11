@@ -153,6 +153,7 @@ public class DashboardFragment extends Fragment {
             binding.tableLayoutUser.setVisibility(View.VISIBLE);
             user = (User) taskArguments;
             ImageView imageViewUser = binding.imageViewUser;
+            TextView textView_user_login = binding.textViewUserLogin;
             TextView textView_user_name = binding.textViewUserName;
             TextView textView_user_location = binding.textViewUserLocation;
             TextView textView_user_email = binding.textViewUserEmail;
@@ -166,6 +167,7 @@ public class DashboardFragment extends Fragment {
             if (connected_internet){
                 Picasso.get().load(user.getAvatar_url()).into(imageViewUser);
             }
+            textView_user_login.setText(user.getLogin());
             textView_user_name.setText(user.getName());
             textView_user_location.setText(user.getLocation());
             textView_user_email.setText(user.getEmail());
@@ -176,6 +178,9 @@ public class DashboardFragment extends Fragment {
             textView_user_followers.setText(String.valueOf(user.getFollowers()));
             textView_user_following.setText(String.valueOf(user.getFollowing()));
             textView_user_more_info.setText(user.getHtml_url());
+        } else {
+            binding.textViewDashboard.setVisibility(View.VISIBLE);
         }
+
     }
 }

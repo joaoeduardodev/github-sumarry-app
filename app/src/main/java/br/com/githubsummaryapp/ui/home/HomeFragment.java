@@ -1,5 +1,7 @@
 package br.com.githubsummaryapp.ui.home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +41,14 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        SharedPreferences preferences = getContext().getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        Boolean connected_internet = preferences.getBoolean("connected_internet", false);
 
+        if (connected_internet == false){
+            binding.editTextUserGitHub.setVisibility(View.INVISIBLE);
+            binding.buttonSearch.setVisibility(View.INVISIBLE);
+            binding.textViewHome.setVisibility(View.VISIBLE);
+        }
         return root;
     }
 
@@ -81,13 +90,13 @@ public class HomeFragment extends Fragment {
                             Snackbar snackbarOnFailureRequest = Snackbar.make(getView(), R.string.user_not_found, Snackbar.LENGTH_LONG);
                             snackbarOnFailureRequest.show();
                         } else {
-                            Log.d("Error in request", "StatusCode: " +response.code()+ "Error: " + response.body() );
+                            Log.d("ErrorInRequest", "StatusCode: " +response.code()+ "Error: " + response.body() );
                         }
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-                        Log.e("getGitHubService.getUserById ", "Error: " + t.getMessage());
+                        Log.e("FailureInRequest", "Error: " + t.getMessage());
                     }
                 });
             }
@@ -100,4 +109,5 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }

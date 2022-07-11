@@ -5,6 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_history">History</string>
     <string name="search_label">Enter with GitHub User</string>
+    <string name="user_login">"Login : "</string>
     <string name="user_name">"Name : "</string>
     <string name="user_email">"Email : "</string>
     <string name="user_company">"Company : "</string>
@@ -23,4 +24,6 @@
     <string name="user_removed_from_favorite">"User removed from favorite "</string>
     <string name="error_removing_user_from_favorite">"Error removing user from favorite "</string>
     <string name="no_user_added_to_favorites">"No user added to favorites "</string>
+    <string name="no_user_selected">No user selected</string>
+    <string name="not_connected_to_internet">Not connected to internet</string>
 </resources>

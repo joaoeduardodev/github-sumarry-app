@@ -1,15 +1,15 @@
 package br.com.githubsummaryapp.utils;
 
+import java.io.IOException;
 import java.net.InetAddress;
 
 public class InternetVerification {
-    public static boolean isAvailable() {
+    public static Boolean isAvailable() {
         try {
-            InetAddress ipAddr = InetAddress.getByName("google.com");
-            return !ipAddr.equals("");
-
+            String command = "ping -c 1 google.com";
+            return Runtime.getRuntime().exec(command).waitFor() == 0;
         } catch (Exception e) {
-            return false;
+        return false;
         }
     }
 }

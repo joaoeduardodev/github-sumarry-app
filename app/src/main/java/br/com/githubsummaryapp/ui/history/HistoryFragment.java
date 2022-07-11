@@ -57,7 +57,7 @@ public class HistoryFragment extends Fragment {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("user", user);
                             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                            navController.navigate(R.id.action_navigation_history_to_navigation_dashboard, bundle);
+                            navController.navigate(R.id.action_navigation_history_to_navigation_user, bundle);
                         } else {
                             Log.d("ErrorInRequest", "StatusCode: " +response.code()+ "Error: " + response.body() );
                         }

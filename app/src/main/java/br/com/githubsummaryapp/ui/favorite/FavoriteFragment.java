@@ -94,7 +94,7 @@ public class FavoriteFragment extends Fragment {
 
                 bundle.putSerializable("user", user);
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                navController.navigate(R.id.action_navigation_favorite_to_navigation_dashboard, bundle);
+                navController.navigate(R.id.action_navigation_favorite_to_navigation_user, bundle);
 
             }
         });

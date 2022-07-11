@@ -11,15 +11,15 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_navigation_home_to_navigation_user"
+            app:destination="@id/navigation_user" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="br.com.githubsummaryapp.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_user"
+        android:name="br.com.githubsummaryapp.ui.user.UserFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_user" />
 
     <fragment
         android:id="@+id/navigation_history"
@@ -27,8 +27,8 @@
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" >
         <action
-            android:id="@+id/action_navigation_history_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_navigation_history_to_navigation_user"
+            app:destination="@id/navigation_user" />
     </fragment>
 
     <fragment
@@ -37,7 +37,7 @@
         android:label="@string/title_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_navigation_favorite_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_navigation_favorite_to_navigation_user"
+            app:destination="@id/navigation_user" />
     </fragment>
 </navigation>

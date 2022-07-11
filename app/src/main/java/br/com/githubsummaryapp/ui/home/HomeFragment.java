@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("user", user);
                             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                            navController.navigate(R.id.action_navigation_home_to_navigation_dashboard, bundle);
+                            navController.navigate(R.id.action_navigation_home_to_navigation_user, bundle);
                         } else if (response.code() == 404 ) {
                             Snackbar snackbarOnFailureRequest = Snackbar.make(getView(), R.string.user_not_found, Snackbar.LENGTH_LONG);
                             snackbarOnFailureRequest.show();

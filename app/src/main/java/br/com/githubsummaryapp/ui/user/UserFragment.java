@@ -1,56 +1,36 @@
-package br.com.githubsummaryapp.ui.dashboard;
+package br.com.githubsummaryapp.ui.user;
 
+import br.com.githubsummaryapp.databinding.FragmentUserBinding;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 
-import java.net.URL;
-
 import br.com.githubsummaryapp.R;
-import br.com.githubsummaryapp.config.RetrofitConfig;
-import br.com.githubsummaryapp.databinding.FragmentDashboardBinding;
 import br.com.githubsummaryapp.db.FavoriteUsersDAO;
-import br.com.githubsummaryapp.db.SearchHistoryDAO;
 import br.com.githubsummaryapp.domain.FavoriteUsers;
-import br.com.githubsummaryapp.domain.SearchHistory;
 import br.com.githubsummaryapp.domain.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class DashboardFragment extends Fragment {
+public class UserFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentUserBinding binding;
     private User user;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentUserBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         return root;

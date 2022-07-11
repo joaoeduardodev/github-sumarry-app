@@ -26,4 +26,5 @@
     <string name="no_user_added_to_favorites">"No user added to favorites "</string>
     <string name="no_user_selected">No user selected</string>
     <string name="not_connected_to_internet">Not connected to internet</string>
+    <string name="title_user">User</string>
 </resources>

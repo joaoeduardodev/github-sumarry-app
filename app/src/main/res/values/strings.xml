@@ -28,4 +28,5 @@
     <string name="not_connected_to_internet">Not connected to internet</string>
     <string name="title_user">User</string>
     <string name="title_search">Search</string>
+    <string name="user_has_no_history">"User has no history "</string>
 </resources>

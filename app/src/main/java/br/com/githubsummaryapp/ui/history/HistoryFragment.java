@@ -90,9 +90,14 @@ public class HistoryFragment extends Fragment {
         SearchHistoryDAO dao = new SearchHistoryDAO(getContext());
         List<SearchHistory> searchHistoryList = dao.listAll();
 
-        ArrayAdapter  adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, searchHistoryList);
-
-        binding.ListViewSearchHistory.setAdapter(adapter);
+        if(!searchHistoryList.isEmpty()){
+            binding.ListViewSearchHistory.setVisibility(View.VISIBLE);
+            ArrayAdapter  adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, searchHistoryList);
+            binding.ListViewSearchHistory.setAdapter(adapter);
+        } else {
+            binding.textViewHistory.setVisibility(View.VISIBLE);
+        }
+        
     }
 
 }

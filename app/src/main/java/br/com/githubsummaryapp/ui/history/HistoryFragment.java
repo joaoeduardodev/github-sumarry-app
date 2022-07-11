@@ -1,4 +1,4 @@
-package br.com.githubsummaryapp.ui.notifications;
+package br.com.githubsummaryapp.ui.history;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,23 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 import br.com.githubsummaryapp.R;
 import br.com.githubsummaryapp.config.RetrofitConfig;
-import br.com.githubsummaryapp.databinding.FragmentNotificationsBinding;
+import br.com.githubsummaryapp.databinding.FragmentHistoryBinding;
 import br.com.githubsummaryapp.db.SearchHistoryDAO;
 import br.com.githubsummaryapp.domain.SearchHistory;
 import br.com.githubsummaryapp.domain.User;
@@ -31,13 +25,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NotificationsFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentHistoryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         return root;
@@ -63,15 +57,15 @@ public class NotificationsFragment extends Fragment {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("user", user);
                             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_main);
-                            navController.navigate(R.id.action_navigation_notifications_to_navigation_dashboard, bundle);
+                            navController.navigate(R.id.action_navigation_history_to_navigation_dashboard, bundle);
                         } else {
-                            Log.d("Error in request", "StatusCode: " +response.code()+ "Error: " + response.body() );
+                            Log.d("ErrorInRequest", "StatusCode: " +response.code()+ "Error: " + response.body() );
                         }
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-                        Log.e("getGitHubService.getUserById ", "Error: " + t.getMessage());
+                        Log.e("FailureInRequest ", "Error: " + t.getMessage());
                     }
                 });
 

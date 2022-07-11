@@ -22,19 +22,19 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="br.com.githubsummaryapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" >
+        android:id="@+id/navigation_history"
+        android:name="br.com.githubsummaryapp.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" >
         <action
-            android:id="@+id/action_navigation_notifications_to_navigation_dashboard"
+            android:id="@+id/action_navigation_history_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_favorite"
         android:name="br.com.githubsummaryapp.ui.favorite.FavoriteFragment"
-        android:label="@string/title_history"
+        android:label="@string/title_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
             android:id="@+id/action_navigation_favorite_to_navigation_dashboard"
